@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		body {
+			margin:0px;
+			padding: 0px;
+			background-color: black;
+		}
+		.calculator {
+			width: 400px;
+			height: 300px;
+			margin:0 auto;
+			border-radius: 8px;
+			background-color: white;
+		}
+		.calculator form {
+			display: block;
+			width: 350px;
+			height: 50px;
+			margin: 25px;
+			padding-top: 20%;
+		}
+		#showResult {
+			text-align: center;
+			font-size: 70px;
+			color: #BCED91;
+			font-family: 'Orbitron', sans-serif;
+			padding-top: 0px;
+			margin-top: 70px;
+		}
+		#operators {
+			height: 50px;
+			min-width:100px;
+			width: auto;
+			margin:0 auto;
+			text-align: center;
+			margin-top: 10px;
+		}
+
+		#operators button {
+			background-color: white;
+			height: 40px;
+			width:50px;
+			border:1px solid #dbdbdb;
+			border-radius: 5px;
+		}
+		#operators button:hover {
+			background-color: black;
+			color:#BCED91;
+			cursor: pointer;
+		}
+
+		#inputs {
+			text-align: center;
+		}
+		#inputs input {
+			height: 40px;
+			width:120px;
+			font-size: 30px;
+			background-color:black;
+			color:#BCED91;
+			border:0px none transparent;
+		}
+		.title {
+			color:#BCED91;
+			text-align: center;
+			margin-top: 10%;
+			font-family: 'Orbitron', sans-serif;
+			font-size: 30px;
+		}
+		.description {
+			color:#BCED91;
+			text-align: center;
+			font-family: arial, sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<h2 class="title">Awesome Calculator</h2>
+	<p class="description">Small Javascript calculator</p>
+	<div class="calculator">
+		
+		<form onsubmit="event.preventDefault();">
+			<div id="inputs">
+				<input type="text" id="number1" />
+				<input type="text" id="number2" />
+			</div>
+			
+			<div id="operators">
+				<button onclick="add()">+</button>
+				<button onclick="subtract()">-</button>
+				<button onclick="multiply()">x</button>
+				<button onclick="divide()">/</button>
+				<button onclick="clean()">CE</button>
+			</div>
+			
+		</form>
+		<p id="showResult"></p>
+	</div>
+	<script type="text/javascript">
+		var number1 = document.getElementById('number1');
+		var number2 = document.getElementById('number2');
+		var showResult = document.getElementById('showResult');
+
+		function add()
+		{
+			var result = Number(number1.value) + Number(number2.value);
+			showResult.innerHTML = result;
+		}
+
+		function subtract()
+		{
+			var result = Number(number1.value) - Number(number2.value);
+			showResult.innerHTML = result;
+		}
+
+		function multiply()
+		{
+			var result =  Number(number1.value) * Number(number2.value);
+			showResult.innerHTML = result;
+		}
+
+		function divide()
+		{
+			var result = Number(number1.value) / Number(number2.value);
+			showResult.innerHTML = result.toFixed(2);;
+		}
+
+		function clean()
+		{
+			number1.value = '';
+			number2.value = '';
+			showResult.innerHTML = '';
+		}
+	</script>
+</body>
+</html>
